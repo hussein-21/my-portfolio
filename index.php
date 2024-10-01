@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="{{ url_for('https://hussein-21.github.io/my-portfolio/', filename='css/style.css') }}">
 
     <!-- Basic -->
     <meta charset="utf-8">
