@@ -1,4 +1,4 @@
-<!DOC<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- Your Custom Styles -->
     <link rel="stylesheet" href="css/versions.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/custom.css">
@@ -22,7 +22,7 @@
 </head>
 <body class="host_version"> 
 
-    <!-- Modal for Login -->
+    <!-- Modal -->
     <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
@@ -40,12 +40,12 @@
                             <form role="form" class="form-horizontal">
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <input class="form-control" placeholder="Name" type="text">
+                                        <input class="form-control" id="email1" placeholder="Name" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <input class="form-control" placeholder="Email" type="email">
+                                        <input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -65,17 +65,17 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <input class="form-control" placeholder="Email" type="email">
+                                        <input class="form-control" id="email" placeholder="Email" type="email">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <input class="form-control" placeholder="Mobile" type="text">
+                                        <input class="form-control" id="mobile" placeholder="Mobile" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <input class="form-control" placeholder="Password" type="password">
+                                        <input class="form-control" id="password" placeholder="Password" type="password">
                                     </div>
                                 </div>
                                 <div class="row">                            
@@ -88,6 +88,15 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOADER -->
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="progress-br float shadow">
+                <div class="progress__item"></div>
             </div>
         </div>
     </div>
@@ -162,7 +171,7 @@
     <!-- About Section -->
     <section id="about" class="container mt-5">
         <h2>About Me</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum nisl felis, in aliquet odio tempor at. Sed cursus lacus ut nisi dignissim, id luctus lacus facilisis.</p>
+        <p>I am a software engineer with a passion for learning and building exciting projects.</p>
     </section>
 
     <!-- Contact Section -->
@@ -216,3 +225,4 @@
     </script>
 </body>
 </html>
+
