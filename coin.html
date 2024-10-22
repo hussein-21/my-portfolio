@@ -1,27 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coin Flipper</title>
-  <meta charset="utf-8">
   <link href="style.css" rel="stylesheet" type="text/css">
+  <style>
+    .result {
+      margin-top: 10px;
+    }
+    img {
+      width: 50px;
+    }
+  </style>
 </head>
 <body>
-  <?php
-    $heads = 0;
-    $tails = 0;
-    for ($x = 1; $x <= 20; $x++) {
-      $flip = rand(0, 1);
-      if ($flip == 0) {
-        echo "<p>Flip #$x: Heads <img src='images/heads.png' alt='image of coin head!'></p>";
-        $heads++;
+
+  <h1>Coin Flipper</h1>
+  <div id="flips"></div>
+  <div class="result">
+    <p id="heads"></p>
+    <p id="tails"></p>
+  </div>
+
+  <script>
+    let heads = 0;
+    let tails = 0;
+    const flipsDiv = document.getElementById('flips');
+
+    for (let x = 1; x <= 20; x++) {
+      let flip = Math.floor(Math.random() * 2); // Generate a random 0 or 1
+      let result = '';
+
+      if (flip === 0) {
+        result = `<p>Flip #${x}: Heads <img src='images/heads.png' alt='image of coin head!'></p>`;
+        heads++;
       } else {
-        echo "<p>Flip #$x: Tails <img src='images/tails.png' alt='image of coin tail!'></p>";
-        $tails++;
+        result = `<p>Flip #${x}: Tails <img src='images/tails.png' alt='image of coin tail!'></p>`;
+        tails++;
       }
+
+      flipsDiv.innerHTML += result; // Add each flip result to the page
     }
-    echo "<p>Number of coins flipped heads: $heads (" . ($heads / 20) * 100 . "%)</p>";
-    echo "<p>Number of coins flipped tails: $tails (" . ($tails / 20) * 100 . "%)</p>";
-  ?>
+
+    // Display results
+    document.getElementById('heads').innerHTML = `Number of coins flipped heads: ${heads} (${(heads / 20) * 100}%)`;
+    document.getElementById('tails').innerHTML = `Number of coins flipped tails: ${tails} (${(tails / 20) * 100}%)`;
+  </script>
+
 </body>
 </html>
-
