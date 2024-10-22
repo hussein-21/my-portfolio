@@ -128,7 +128,14 @@
 	<!-- END LOADER -->	
 	
 	<!-- Start header -->
-	    <?php include('header.html'); ?>
+	    <div id="header-placeholder"></div>
+<script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        });
+</script>
 	<!-- End header -->
 	
 	<div id="carouselExampleControls" class="carousel slide bs-slider box-slider" data-ride="carousel" data-pause="hover" data-interval="false" >
@@ -150,7 +157,7 @@
 										<p class="lead">Software Engineer studying computer science at Henry Ford College.</p>
                                         <a href="contact.html" class="hover-btn-new"><span>Contact Me</span></a>
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<a href="resume.php" class="hover-btn-new"><span>Resume</span></a>
+											<a href="resume.html" class="hover-btn-new"><span>Resume</span></a>
 									</div>
 								</div>
 							</div><!-- end row -->            
