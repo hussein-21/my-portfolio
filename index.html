@@ -2,43 +2,161 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hussein Alsaidi's ePortfolio</title>
     
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
     
-    <!-- Modernizer for Portfolio -->
-    <script src="js/modernizer.js"></script>
+    <style>
+        /* Global Colors */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            padding: 1rem;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            margin-left: 1rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f39c12;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero-bg.jpg') no-repeat center center/cover;
+            height: 90vh;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 0.8rem 2rem;
+            margin: 1rem;
+            border-radius: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #f39c12;
+            border: none;
+        }
+
+        .btn-secondary {
+            background-color: #2980b9;
+            border: none;
+        }
+
+        /* About Section */
+        #about {
+            padding: 4rem 0;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        #about h2 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+        }
+
+        #about p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            color: #7f8c8d;
+        }
+
+        /* Stats Section */
+        #stats {
+            padding: 4rem 0;
+            background-color: #ecf0f1;
+            text-align: center;
+        }
+
+        #stats .stat {
+            margin: 2rem 0;
+        }
+
+        #stats h3 {
+            font-size: 2.5rem;
+            color: #2980b9;
+        }
+
+        #stats p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 3rem 0;
+        }
+
+        footer .footer-links a {
+            color: #f39c12;
+            text-decoration: none;
+        }
+
+        footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            padding-top: 1rem;
+            font-size: 0.9rem;
+            border-top: 1px solid #7f8c8d;
+            text-align: center;
+            color: #7f8c8d;
+        }
+
+    </style>
+
 </head>
 
-<body class="host_version">
+<body>
 
-    <!-- LOADER -->
-    <div id="preloader">
-        <div class="loader-container">
-            <div class="progress-br float shadow">
-                <div class="progress__item"></div>
-            </div>
-        </div>
-    </div>
-    <!-- END LOADER -->
-
-    <!-- Start Header -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="#">Hussein Alsaidi</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
@@ -53,109 +171,81 @@
             </ul>
         </div>
     </nav>
-    <!-- End Header -->
 
-    <!-- Carousel Section -->
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <!-- Slide 1 -->
-            <div class="carousel-item active">
-                <div class="carousel-caption">
-                    <h2><strong>Hussein</strong> Alsaidi</h2>
-                    <p>Software Engineer studying Computer Science at the University of Michigan-Dearborn.</p>
-                    <a href="contact.html" class="btn btn-primary">Contact Me</a>
-                    <a href="resume.pdf" class="btn btn-secondary ml-2">Resume</a>
-                </div>
-                <img class="d-block w-100" src="images/slider-01.jpg" alt="First slide">
-            </div>
-            <!-- Slide 2 -->
-            <div class="carousel-item">
-                <div class="carousel-caption">
-                    <h2>Driven <strong> Learner</strong></h2>
-                    <p>I thrive on challenges and continuously seek to expand my skills.</p>
-                    <a href="contact.html" class="btn btn-primary">Contact Me</a>
-                    <a href="resume.pdf" class="btn btn-secondary ml-2">Resume</a>
-                </div>
-                <img class="d-block w-100" src="images/slider-02.jpg" alt="Second slide">
-            </div>
-            <!-- Slide 3 -->
-            <div class="carousel-item">
-                <div class="carousel-caption">
-                    <h2><strong>My</strong> Goals</h2>
-                    <p>Pursuing a Bachelor's degree in Computer Science, aiming to contribute to innovative solutions.</p>
-                    <a href="contact.html" class="btn btn-primary">Contact Me</a>
-                    <a href="resume.pdf" class="btn btn-secondary ml-2">Resume</a>
-                </div>
-                <img class="d-block w-100" src="images/slider-03.jpg" alt="Third slide">
-            </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1>Hussein Alsaidi</h1>
+            <p>Software Engineer | Passionate Problem Solver</p>
+            <a href="resume.pdf" class="btn btn-primary">Download Resume</a>
+            <a href="contact.html" class="btn btn-secondary">Contact Me</a>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    <!-- End Carousel -->
+    </section>
 
     <!-- About Section -->
-    <div class="container text-center mt-5">
-        <h3>About Me</h3>
-        <p class="lead">I am a motivated student pursuing a degree in Computer Science at the University of Michigan-Dearborn, with a passion for software development, AI, and problem-solving.</p>
-    </div>
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a dedicated Computer Science student at the University of Michigan-Dearborn. I specialize in software development with hands-on experience in C++, Python, Java, and SQL. My passion lies in developing scalable, efficient solutions and tackling real-world challenges.</p>
+        </div>
+    </section>
 
     <!-- Stats Section -->
-    <div class="container mt-5">
-        <div class="row text-center">
-            <div class="col-md-4">
-                <h4>200+</h4>
-                <p>Programs Written</p>
-            </div>
-            <div class="col-md-4">
-                <h4>10+</h4>
-                <p>Web Sites Built</p>
-            </div>
-            <div class="col-md-4">
-                <h4>5</h4>
-                <p>Known Languages</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer Section -->
-    <footer class="footer bg-light mt-5">
+    <section id="stats">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <h4>About Me</h4>
-                    <p>I am Hussein Alsaidi, a Computer Science student with a passion for software development. I specialize in programming languages such as C++, Python, Java, and SQL. Currently seeking a Computer Science internship to gain real-world experience.</p>
+                <div class="col-md-4 stat">
+                    <h3>200+</h3>
+                    <p>Programs Written</p>
                 </div>
-                <div class="col-lg-4">
-                    <h4>Information Links</h4>
-                    <ul class="list-unstyled">
+                <div class="col-md-4 stat">
+                    <h3>10+</h3>
+                    <p>Web Sites Built</p>
+                </div>
+                <div class="col-md-4 stat">
+                    <h3>5</h3>
+                    <p>Programming Languages</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Contact Me</h4>
+                    <ul class="footer-links">
+                        <li>Email: <a href="mailto:husseinw@umich.edu">husseinw@umich.edu</a></li>
+                        <li>Location: Dearborn, Michigan</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="resume.pdf">Resume</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
-                    <h4>Contact Details</h4>
-                    <ul class="list-unstyled">
-                        <li><a href="mailto:husseinw@umich.edu">husseinw@umich.edu</a></li>
+                <div class="col-md-4">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/hussein-21" target="_blank">GitHub</a></li>
                         <li><a href="https://www.linkedin.com/in/hussein-alsaidi-193542221/" target="_blank">LinkedIn</a></li>
-                        <li>Dearborn, Michigan</li>
-                        <li>+1 (313) 971-2869</li>
                     </ul>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hussein Alsaidi. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JS Files -->
-    <script src="js/all.js"></script>
-    <script src="js/custom.js"></script>
+    <!-- JavaScript Files -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
