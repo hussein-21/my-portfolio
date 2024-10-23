@@ -4,73 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Hussein Alsaidi's ePortfolio</title>
     
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
-    
     <style>
-        /* Global Colors */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
             background-color: #f4f4f9;
             color: #333;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1, h2, h3, h4 {
             color: #333;
         }
 
         .navbar {
             background-color: #2c3e50;
-            padding: 1rem;
         }
 
-        .navbar-brand {
+        .navbar-brand, .navbar-nav .nav-link {
             color: #fff;
-            font-size: 1.5rem;
-            font-weight: bold;
         }
 
-        .navbar-nav .nav-link {
-            color: #fff;
-            margin-left: 1rem;
-        }
-
-        .navbar-nav .nav-link:hover {
+        .navbar-brand:hover, .navbar-nav .nav-link:hover {
             color: #f39c12;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero-bg.jpg') no-repeat center center/cover;
+            background-image: url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
             height: 90vh;
-            color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            font-weight: bold;
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
 
         .btn-primary, .btn-secondary {
-            padding: 0.8rem 2rem;
-            margin: 1rem;
-            border-radius: 25px;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 20px;
             text-transform: uppercase;
             font-weight: bold;
         }
@@ -87,40 +79,34 @@
 
         /* About Section */
         #about {
-            padding: 4rem 0;
+            padding: 60px 0;
             background-color: #fff;
             text-align: center;
         }
 
         #about h2 {
-            color: #2c3e50;
             font-size: 2.5rem;
+            margin-bottom: 30px;
         }
 
         #about p {
             font-size: 1.2rem;
-            margin-top: 1rem;
             color: #7f8c8d;
         }
 
         /* Stats Section */
         #stats {
-            padding: 4rem 0;
-            background-color: #ecf0f1;
-            text-align: center;
-        }
-
-        #stats .stat {
-            margin: 2rem 0;
+            padding: 60px 0;
+            background-color: #f9f9f9;
         }
 
         #stats h3 {
-            font-size: 2.5rem;
             color: #2980b9;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
         }
 
         #stats p {
-            font-size: 1.2rem;
             color: #7f8c8d;
         }
 
@@ -128,38 +114,34 @@
         footer {
             background-color: #2c3e50;
             color: #fff;
-            padding: 3rem 0;
+            padding: 40px 0;
         }
 
         footer .footer-links a {
             color: #f39c12;
-            text-decoration: none;
-        }
-
-        footer .footer-links a:hover {
-            text-decoration: underline;
         }
 
         .footer-bottom {
-            padding-top: 1rem;
+            text-align: center;
+            padding-top: 20px;
             font-size: 0.9rem;
             border-top: 1px solid #7f8c8d;
-            text-align: center;
-            color: #7f8c8d;
         }
 
     </style>
-
 </head>
 
 <body>
 
-    <!-- Navigation Bar -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="#">Hussein Alsaidi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
@@ -191,18 +173,18 @@
     </section>
 
     <!-- Stats Section -->
-    <section id="stats">
+    <section id="stats" class="text-center">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 stat">
+                <div class="col-md-4">
                     <h3>200+</h3>
                     <p>Programs Written</p>
                 </div>
-                <div class="col-md-4 stat">
+                <div class="col-md-4">
                     <h3>10+</h3>
-                    <p>Web Sites Built</p>
+                    <p>Websites Built</p>
                 </div>
-                <div class="col-md-4 stat">
+                <div class="col-md-4">
                     <h3>5</h3>
                     <p>Programming Languages</p>
                 </div>
@@ -216,14 +198,14 @@
             <div class="row">
                 <div class="col-md-4">
                     <h4>Contact Me</h4>
-                    <ul class="footer-links">
-                        <li>Email: <a href="mailto:husseinw@umich.edu">husseinw@umich.edu</a></li>
-                        <li>Location: Dearborn, Michigan</li>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:husseinw@umich.edu">husseinw@umich.edu</a></li>
+                        <li>Dearborn, Michigan</li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <h4>Quick Links</h4>
-                    <ul class="footer-links">
+                    <ul class="list-unstyled">
                         <li><a href="#">Home</a></li>
                         <li><a href="resume.pdf">Resume</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -231,7 +213,7 @@
                 </div>
                 <div class="col-md-4">
                     <h4>Connect</h4>
-                    <ul class="footer-links">
+                    <ul class="list-unstyled">
                         <li><a href="https://github.com/hussein-21" target="_blank">GitHub</a></li>
                         <li><a href="https://www.linkedin.com/in/hussein-alsaidi-193542221/" target="_blank">LinkedIn</a></li>
                     </ul>
@@ -243,9 +225,12 @@
         </div>
     </footer>
 
-    <!-- JavaScript Files -->
-    <script src="js/bootstrap.bundle.min.js"></script>
-
+    <!-- Bootstrap and JavaScript Files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
+
+
