@@ -1,46 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <meta charset="UTF-8">
-     <link rel="stylesheet" type="text/css" href="style.css">
-     <title>Grade Calculator</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Grade Calculator</title>
 </head>
 
 <body>
-	<h1>Grade Calculator</h1>
-	<?php
-		$hw1 = mb_substr($_POST['hw1'],0,2);
-		$hw2 = mb_substr($_POST['hw2'],0,2);
-		$hw3 = mb_substr($_POST['hw3'],0,2);
-		$q1 = mb_substr($_POST['q1'],0,2);
-		$q2 = mb_substr($_POST['q2'],0,2);
-		$q3 = mb_substr($_POST['q3'],0,2);
-		$q4 = mb_substr($_POST['q4'],0,2);
-		$q5 = mb_substr($_POST['q5'],0,2);
-		$exam = mb_substr($_POST['exam'],0,3);
+    <h1>Grade Calculator</h1>
 
+    <!-- Form for user input -->
+    <form id="grade-form">
+        <label for="hw1">Homework 1:</label>
+        <input type="number" id="hw1" min="0" max="100"><br>
 
-		if ($hw1 =="" or $hw2 == "" or $hw3 == "" or $q1 =="" or $q2 =="" or $q3 == "" or $q4=="" or $q5 == "" or $exam =="")
-		exit("Invalid input. You must enter at least 0 for all fields. <a href=\"javascript:history.go(-1)\">Go back</a>");
+        <label for="hw2">Homework 2:</label>
+        <input type="number" id="hw2" min="0" max="100"><br>
 
+        <label for="hw3">Homework 3:</label>
+        <input type="number" id="hw3" min="0" max="100"><br>
 
-		$grade = (($hw1+$hw2+$hw3+$q1+$q2+$q3+$q4+$q5+$exam)/425)*100;
+        <label for="q1">Quiz 1:</label>
+        <input type="number" id="q1" min="0" max="100"><br>
 
+        <label for="q2">Quiz 2:</label>
+        <input type="number" id="q2" min="0" max="100"><br>
 
-		echo "<p> Current grade is " . round($grade,0);
+        <label for="q3">Quiz 3:</label>
+        <input type="number" id="q3" min="0" max="100"><br>
 
+        <label for="q4">Quiz 4:</label>
+        <input type="number" id="q4" min="0" max="100"><br>
 
-		if ($grade >=90)
-			echo "%, Which is an A.</p>";
-		elseif ($grade >= 80)
-			echo "%, Which is a B.</p>";
-		elseif($grade >= 70)
-			echo "%, Which is a C.</p>";
-		elseif($grade >= 60)
-			echo "%, Which is a D.</p>";
-		else
-			echo "%, Which is an E.</p>";
+        <label for="q5">Quiz 5:</label>
+        <input type="number" id="q5" min="0" max="100"><br>
 
-	?>
+        <label for="exam">Exam:</label>
+        <input type="number" id="exam" min="0" max="100"><br>
+
+        <button type="button" onclick="calculateGrade()">Calculate Grade</button>
+    </form>
+
+    <!-- Output section -->
+    <p id="grade-output"></p>
+
+    <script>
+        function calculateGrade() {
+            // Get values from the form
+            const hw1 = parseInt(document.getElementById('hw1').value) || 0;
+            const hw2 = parseInt(document.getElementById('hw2').value) || 0;
+            const hw3 = parseInt(document.getElementById('hw3').value) || 0;
+            const q1 = parseInt(document.getElementById('q1').value) || 0;
+            const q2 = parseInt(document.getElementById('q2').value) || 0;
+            const q3 = parseInt(document.getElementById('q3').value) || 0;
+            const q4 = parseInt(document.getElementById('q4').value) || 0;
+            const q5 = parseInt(document.getElementById('q5').value) || 0;
+            const exam = parseInt(document.getElementById('exam').value) || 0;
+
+            // Calculate total grade
+            const totalGrade = ((hw1 + hw2 + hw3 + q1 + q2 + q3 + q4 + q5 + exam) / 425) * 100;
+
+            // Determine letter grade
+            let letterGrade = '';
+            if (totalGrade >= 90) {
+                letterGrade = 'A';
+            } else if (totalGrade >= 80) {
+                letterGrade = 'B';
+            } else if (totalGrade >= 70) {
+                letterGrade = 'C';
+            } else if (totalGrade >= 60) {
+                letterGrade = 'D';
+            } else {
+                letterGrade = 'E';
+            }
+
+            // Display result
+            document.getElementById('grade-output').innerHTML = `Current grade is ${Math.round(totalGrade)}%, which is a ${letterGrade}.`;
+        }
+    </script>
 </body>
 </html>
+
