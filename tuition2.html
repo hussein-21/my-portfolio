@@ -1,70 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <meta charset="UTF-8">
-     <link rel="stylesheet" type="text/css" href="style.css">
-     <title>HFC Tuition Calculator</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>HFC Tuition Calculator</title>
 </head>
 
 <body>
-  <h1>Tuition Calculator</h1>
-   <?php
-        #GET AND FILTER USER INPUT
-        $residency = mb_substr($_POST['residency'],0,1);
-        $faid = mb_substr($_POST['faid'],0,1);
-        $lower = mb_substr($_POST['lower'],0,2);
-        $upper = mb_substr($_POST['upper'],0,2);
+    <h1>Tuition Calculator</h1>
 
-        #VALIDATE CREDIT HOURS
-        if ($lower == "")
-            $lower = 0; 
-        if ($upper == "")
-            $upper = 0;
-        if ($lower == 0 and $upper == 0)
-            exit("Invalid input. You must enter at least 1 credit hour. <a href=\"javascript:history.go(-1)\">Go back</a>");
+    <form id="tuitionForm">
+        <!-- Residency Selection -->
+        <label for="residency">Select your residency:</label>
+        <select id="residency" name="residency">
+            <option value="1">In-district</option>
+            <option value="2">Out-of-District</option>
+            <option value="3">Out of State / International</option>
+        </select>
 
-        #DECISION STATEMENT TO CALCULATE CREDIT HOURS
-        if ($residency == 1)
-        {
-            $residency = "in-district";
-            $tuition = ($lower * 108) + ($upper * 200) + (($lower + $upper) * 24) + 50 + 60;
-        }
-        elseif ($residency == 2)
-        {
-            $residency = "Out-Of-District";
-            $tuition = ($lower * 188) + ($upper * 265) + (($lower + $upper) * 24) + 50 + 60;
-        }
-        elseif ($residency == 3)
-        {
-            $residency = "Out of State / International";
-            $tuition = ($lower * 273) + ($upper * 350) + (($lower + $upper) * 24) + 50 + 60;
-        }
+        <!-- Financial Aid -->
+        <label for="faid">Do you have financial aid?</label>
+        <select id="faid" name="faid">
+            <option value="1">No</option>
+            <option value="2">Yes</option>
+        </select>
 
-        #OUTPUT/DISPLAY TOTAL COST
-        echo "<p>Total $residency tuition cost for $lower 100-200 Level Credit Hours, and $upper Level 300 & 400 Credit Hours is:$" . number_format($tuition,2) ."</p>";
+        <!-- Lower level credit hours (100-200) -->
+        <label for="lower">100-200 Level Credit Hours:</label>
+        <input type="number" id="lower" name="lower" min="0" placeholder="Enter credit hours">
 
-        #DECISION STATEMENT FOR FINANCIAL AID
-        if ($faid == 2)
-        {
-            $faid = "Yes";
-                echo "<p>Helpful Financial Aid Information</p>
-                    <p>
-                        <ul>
-                            <li><a href=\"https://www.hfcc.edu/financial-aid/grants\"></a>
-                            <li><a href=\"https://www.hfcc.edu/payment\"></a>
-                            <li><a href=\"https://www.hfcc.edu/payment/scholarships\"></a>
-                        </ul>
-                    </p>
-                </p>";
-        }
+        <!-- Upper level credit hours (300-400) -->
+        <label for="upper">300-400 Level Credit Hours:</label>
+        <input type="number" id="upper" name="upper" min="0" placeholder="Enter credit hours">
 
-        elseif ($faid == 1)
-        {
-            $faid = "No";
-                echo "<p></p>";
-        }
-    ?>
+        <button type="submit">Calculate Tuition</button>
+    </form>
 
+    <p id="tuitionOutput"></p>
 
+    <p id="financialAidInfo"></p>
+
+    <script>
+        document.getElementById('tuitionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get values from form
+            const residency = document.getElementById('residency').value;
+            const faid = document.getElementById('faid').value;
+            const lower = parseInt(document.getElementById('lower').value) || 0;
+            const upper = parseInt(document.getElementById('upper').value) || 0;
+
+            // Validate input
+            if (lower === 0 && upper === 0) {
+                alert("Invalid input. You must enter at least 1 credit hour.");
+                return;
+            }
+
+            // Tuition calculation based on residency
+            let tuition = 0;
+            let residencyText = "";
+
+            if (residency == "1") {
+                residencyText = "In-district";
+                tuition = (lower * 108) + (upper * 200) + ((lower + upper) * 24) + 50 + 60;
+            } else if (residency == "2") {
+                residencyText = "Out-of-District";
+                tuition = (lower * 188) + (upper * 265) + ((lower + upper) * 24) + 50 + 60;
+            } else if (residency == "3") {
+                residencyText = "Out of State / International";
+                tuition = (lower * 273) + (upper * 350) + ((lower + upper) * 24) + 50 + 60;
+            }
+
+            // Display total tuition
+            document.getElementById('tuitionOutput').innerHTML = `Total ${residencyText} tuition cost for ${lower} 100-200 Level Credit Hours, and ${upper} 300 & 400 Level Credit Hours is: $${tuition.toFixed(2)}`;
+
+            // Display financial aid information if applicable
+            if (faid == "2") {
+                document.getElementById('financialAidInfo').innerHTML = `
+                    <p>Helpful Financial Aid Information</p>
+                    <ul>
+                        <li><a href="https://www.hfcc.edu/financial-aid/grants" target="_blank">Grants Information</a></li>
+                        <li><a href="https://www.hfcc.edu/payment" target="_blank">Payment Information</a></li>
+                        <li><a href="https://www.hfcc.edu/payment/scholarships" target="_blank">Scholarship Information</a></li>
+                    </ul>`;
+            } else {
+                document.getElementById('financialAidInfo').innerHTML = "";
+            }
+        });
+    </script>
 </body>
 </html>
